@@ -17,3 +17,12 @@
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
 }
+
+
+.clip-path{
+  clip-path: circle(0.8% at 100% 50%);
+}
+
+.clip-path-active{
+  clip-path: circle(112.0% at 100% 50%);
+}
