@@ -2,28 +2,28 @@ import React from "react";
 
 const ReviewCard = ({ image, name, position, review }) => {
   return (
-    <div className="w-full flex justify-center">
-      <div className="py-12 pt-16 relative w-[350px]">
+    <div className=" flex justify-center py-5">
+      <div className="py-12 xl:py-16 pt-16 xl:pt-20 relative w-[350px] z-50 xl:w-[550px]">
         {/* person  */}
-        <div className="flex items-center absolute top-5 -left-5 w-full">
+        <div className="flex items-center absolute top-5 -left-5 xl:-top-1 w-full">
           {/* profile photo */}
-          <div className="w-20 aspect-square overflow-hidden rounded-lg">
+          <div className="w-20 xl:w-32 aspect-square overflow-hidden rounded-lg">
             <img
-              src="/photo.avif"
+              src={image}
               alt="profile"
-              className="w-full h-full object-cover"
+              className="w-full aspect-square object-cover"
             />
           </div>
 
           {/* name and postion  */}
-          <div className="h-min w-[60%] grid gap-1 bg-[#1f2732] py-2 px-5 rounded">
-            <h1 className="font-bold text-sm">{name}</h1>
-            <div className="text-xs opacity-70">{position}</div>
+          <div className="h-min w-1/2 grid gap-1 bg-[#1f2732] py-2 px-5 rounded">
+            <h1 className="font-bold text-sm xl:text-xl">{name}</h1>
+            <div className="text-xs opacity-70 xl:text-sm">{position}</div>
           </div>
         </div>
 
         {/* review  */}
-        <div className="bg-[#151a21] px-5 py-12 text-sm rounded shadow-xl shadow-[#252b33]">
+        <div className="bg-[#151a21] px-5 py-12 text-sm rounded shadow-xl shadow-[#252b33] xl:text-xl">
           {review}
         </div>
 
