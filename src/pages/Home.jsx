@@ -38,10 +38,25 @@ const Home = () => {
 
         {/* buttons  */}
 
-        <div className="grid gap-10 px-5">
-          <Button text={'Courses'}  gradient={'bg-gradient-to-r from-green-500 to-green-800 white-shadow'} />
-          <Button text={'Student Projects'}  gradient={'bg-gradient-to-r from-yellow-500 to-yellow-800 dark-shadow'} />
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="grid gap-10 px-5 lg:grid-cols-2 lg:px-0"
+        >
+          <Button
+            text={"Courses"}
+            gradient={
+              "bg-gradient-to-r from-green-500 to-green-800 white-shadow"
+            }
+          />
+          <Button
+            text={"Student Projects"}
+            gradient={
+              "bg-gradient-to-r from-yellow-500 to-yellow-800 dark-shadow"
+            }
+          />
+        </motion.div>
       </div>
 
       {/* right side  */}
