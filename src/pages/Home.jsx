@@ -1,12 +1,13 @@
 import React from "react";
-import Header from "../components/Header";
+import Header from "../components/header/Header";
 import GradientText from "../components/GradientText";
-import ReviewCard from "../components/ReviewCard";
+import ReviewCard from "../components/home/ReviewCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { reviews } from "../Reviews";
 import "swiper/css";
 import { motion } from "framer-motion";
+import Button from "../components/home/Button";
 
 const Home = () => {
   return (
@@ -34,6 +35,13 @@ const Home = () => {
           Your gateway to efficient learning. Flexible, rewarding, and vibrant.
           Join us, unlock potential, seize every moment.
         </motion.div>
+
+        {/* buttons  */}
+
+        <div className="grid gap-10 px-5">
+          <Button text={'Courses'}  gradient={'bg-gradient-to-r from-green-500 to-green-800 white-shadow'} />
+          <Button text={'Student Projects'}  gradient={'bg-gradient-to-r from-yellow-500 to-yellow-800 dark-shadow'} />
+        </div>
       </div>
 
       {/* right side  */}

@@ -18,11 +18,11 @@
   -moz-text-fill-color: transparent;
 }
 
-
-.clip-path{
-  clip-path: circle(0.8% at 100% 50%);
+.white-shadow{
+  box-shadow: 5px 5px 0px white;
+  border: 3px solid #0D1117;
 }
 
-.clip-path-active{
-  clip-path: circle(112.0% at 100% 50%);
+.dark-shadow{
+  box-shadow: 5px 5px 0px #1b222b;
 }

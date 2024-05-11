@@ -5,7 +5,7 @@ import ListItems from "./ListItems";
 const NavMenu = ({ isOpen }) => {
   const menuVariants = {
     open: {
-      clipPath: "circle(130% at 78% 0)",
+      clipPath: "circle(150% at 78% 0)",
       x: 0,
       transition: {
         type: "spring",
@@ -56,26 +56,9 @@ const NavMenu = ({ isOpen }) => {
     },
   };
 
-  const itemVariants = {
-    open: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        y: { stiffness: 1000, velocity: -100 },
-      },
-    },
-    closed: {
-      y: 50,
-      opacity: 0,
-      transition: {
-        y: { stiffness: 1000 },
-      },
-    },
-  };
-
   return (
     <motion.div
-      className="bg-[#111318] overflow-hidden fixed z-[100] h-[calc(100vh-79px)] w-80 right-0 top-[79px]"
+      className="bg-[#111318] overflow-hidden fixed z-[100] h-[calc(100vh-79px)] w-80 right-0 top-[79px] lg:h-auto lg:top-[88px] lg:right-60"
       variants={menuVariants}
       animate={isOpen ? "open" : "closed"}
     >
@@ -83,12 +66,12 @@ const NavMenu = ({ isOpen }) => {
 
       <motion.div variants={variants} animate={isOpen ? "open" : "closed"}>
         {menuLinks.map((link, index) => (
-            <ListItems
-              key={index}
-              name={link.name}
-              url={link.url}
-              icon={link.icon}
-            />
+          <ListItems
+            key={index}
+            name={link.name}
+            url={link.url}
+            icon={link.icon}
+          />
         ))}
       </motion.div>
     </motion.div>
