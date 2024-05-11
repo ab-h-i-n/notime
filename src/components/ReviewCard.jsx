@@ -3,11 +3,11 @@ import React from "react";
 const ReviewCard = ({ image, name, position, review }) => {
   return (
     <div className=" flex justify-center py-5">
-      <div className="py-12 xl:py-16 pt-16 xl:pt-20 relative w-[350px] z-50 xl:w-[550px]">
+      <div className="py-12 xl:py-16 pt-16 xl:pt-20 relative w-[350px] z-50 xl:w-[450px]">
         {/* person  */}
-        <div className="flex items-center absolute top-5 -left-5 xl:-top-1 w-full">
+        <div className="flex items-center absolute top-5 -left-5 xl:top-5 w-full">
           {/* profile photo */}
-          <div className="w-20 xl:w-32 aspect-square overflow-hidden rounded-lg">
+          <div className="w-20 xl:w-24 aspect-square overflow-hidden rounded-lg">
             <img
               src={image}
               alt="profile"
@@ -23,7 +23,7 @@ const ReviewCard = ({ image, name, position, review }) => {
         </div>
 
         {/* review  */}
-        <div className="bg-[#151a21] px-5 py-12 text-sm rounded shadow-xl shadow-[#252b33] xl:text-xl">
+        <div className="bg-[#151a21] px-5 py-12 text-sm rounded shadow-xl shadow-[#252b33] xl:text-lg">
           {review}
         </div>
 
