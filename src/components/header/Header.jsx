@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import HamburgerIcon from "./HamburgerIcon";
 import NavMenu from "./NavMenu";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
+import { useCycle } from "framer-motion";
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+
+  const [isOpen, toggleOpen] = useCycle(false, true);
 
   return (
     <>
@@ -20,21 +22,23 @@ const Header = () => {
         className="bg-[#0000006b] z-50 backdrop-blur-md fixed top-0 left-0 w-screen flex justify-between items-center py-5 px-10 border-b-[1px] border-[#ffffff22] lg:px-72"
       >
         {/* logo  */}
-        <div className="inline-flex items-center gap-4">
-          <img src="/notime-logo.svg" alt="logo" className="w-20 lg:w-24" />
-          <h1 className="text-white font-semibold text-xl lg:text-2xl">
-            Notime
-          </h1>
-        </div>
+        <Link to={'/'}>
+          <div className="inline-flex items-center gap-4">
+            <img src="/notime-logo.svg" alt="logo" className="w-20 lg:w-24" />
+            <h1 className="text-white font-semibold text-xl lg:text-2xl">
+              Notime
+            </h1>
+          </div>
+        </Link>
 
         {/* hamburger icon  */}
 
         <div>
-          <HamburgerIcon setActive={setIsOpen} isAcitve={isOpen} />
+          <HamburgerIcon isOpen={isOpen} toggleOpen={toggleOpen} />
         </div>
 
         {/* links  */}
-        <NavMenu isOpen={isOpen} />
+        <NavMenu isOpen={isOpen} setIsOpen={toggleOpen} />
       </motion.header>
     </>
   );

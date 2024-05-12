@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { motion, useCycle } from "framer-motion";
 
-const HamburgerIcon = ({isAcitve, setActive}) => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
+const HamburgerIcon = ({isOpen, toggleOpen}) => {
 
   const topLineVariants = {
     open: {
@@ -40,10 +39,6 @@ const HamburgerIcon = ({isAcitve, setActive}) => {
       transition: { type: "spring", stiffness: 300, damping: 20 },
     },
   };
-
-  useEffect(()=>{
-    setActive(isOpen);
-  },[isOpen])
 
   return (
     <motion.div

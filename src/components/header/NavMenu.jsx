@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import ListItems from "./ListItems";
 
-const NavMenu = ({ isOpen }) => {
+const NavMenu = ({ isOpen, setIsOpen }) => {
   const menuVariants = {
     open: {
       clipPath: "circle(150% at 78% 0)",
@@ -32,17 +32,17 @@ const NavMenu = ({ isOpen }) => {
     },
     {
       name: "Student Projects",
-      url: "/projects",
+      url: "/student-projects",
       icon: "/projects-icon.svg",
     },
     {
       name: "Youtube Videos",
-      url: "/videos",
+      url: "/youtube-videos",
       icon: "/videos-icon.svg",
     },
     {
       name: "Contact Us",
-      url: "/contact",
+      url: "/contact-us",
       icon: "/contact-icon.svg",
     },
   ];
@@ -58,7 +58,7 @@ const NavMenu = ({ isOpen }) => {
 
   return (
     <motion.div
-      className="bg-[#111318] overflow-hidden fixed z-[100] h-[calc(100vh-79px)] w-80 right-0 top-[79px] lg:h-auto lg:top-[88px] lg:right-60"
+      className="bg-[#111318] overflow-hidden fixed z-[100] h-[calc(100vh-79px)] w-80 right-0 top-[85px] lg:h-auto lg:top-[88px] lg:right-60"
       variants={menuVariants}
       animate={isOpen ? "open" : "closed"}
     >
@@ -70,6 +70,7 @@ const NavMenu = ({ isOpen }) => {
             key={index}
             name={link.name}
             url={link.url}
+            setIsOpen={setIsOpen}
             icon={link.icon}
           />
         ))}
