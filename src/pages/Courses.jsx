@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import CourseCard from "../components/courses/CourseCard";
 
 const Courses = () => {
+  
   const courses = [
     {
       title: "MERN Stack Development",

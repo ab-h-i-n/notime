@@ -2,7 +2,7 @@ import React from "react";
 
 const ReviewCard = ({ image, name, position, review }) => {
   return (
-    <div className=" flex justify-center py-5">
+    <div className=" flex justify-center py-5 cursor-pointer">
       <div className="py-12 xl:py-16 pt-16 xl:pt-20 relative w-[350px] xl:w-[450px]">
         {/* person  */}
         <div className="flex items-center absolute top-5 -left-5 xl:top-5 w-full">
