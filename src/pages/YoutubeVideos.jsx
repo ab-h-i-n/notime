@@ -1,35 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "../components/Banner";
 import VideoCard from "../components/youtube-videos/VideoCard";
 
 const YoutubeVideos = () => {
-
   const videos = [
     {
-      thumbnail : "https://i.ytimg.com/vi/lAFbKzO-fss/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCzwrq0jp1Kua9fejZF79Kq1Malbw",
-      title : "MERN Stack Development",
-      description : "Master MERN stack by building real world projects",
-      link : "https://www.youtube.com/watch?v=2Vf1D-rUMwE"
+      thumbnail:
+        "https://i.ytimg.com/vi/lAFbKzO-fss/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCzwrq0jp1Kua9fejZF79Kq1Malbw",
+      title: "MERN Stack Development",
+      description: "Master MERN stack by building real world projects",
+      link: "https://www.youtube.com/watch?v=2Vf1D-rUMwE",
     },
     {
-      thumbnail : "https://i.ytimg.com/vi/lAFbKzO-fss/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCzwrq0jp1Kua9fejZF79Kq1Malbw",
-      title : "MERN Stack Development",
-      description : "Master MERN stack by building real world projects",
-      link : "https://www.youtube.com/watch?v=2Vf1D-rUMwE"
+      thumbnail:
+        "https://i.ytimg.com/vi/lAFbKzO-fss/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCzwrq0jp1Kua9fejZF79Kq1Malbw",
+      title: "MERN Stack Development",
+      description: "Master MERN stack by building real world projects",
+      link: "https://www.youtube.com/watch?v=2Vf1D-rUMwE",
     },
     {
-      thumbnail : "https://i.ytimg.com/vi/lAFbKzO-fss/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCzwrq0jp1Kua9fejZF79Kq1Malbw",
-      title : "MERN Stack Development",
-      description : "Master MERN stack by building real world projects",
-      link : "https://www.youtube.com/watch?v=2Vf1D-rUMwE"
+      thumbnail:
+        "https://i.ytimg.com/vi/lAFbKzO-fss/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCzwrq0jp1Kua9fejZF79Kq1Malbw",
+      title: "MERN Stack Development",
+      description: "Master MERN stack by building real world projects",
+      link: "https://www.youtube.com/watch?v=2Vf1D-rUMwE",
     },
     {
-      thumbnail : "https://i.ytimg.com/vi/lAFbKzO-fss/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCzwrq0jp1Kua9fejZF79Kq1Malbw",
-      title : "MERN Stack Development",
-      description : "Master MERN stack by building real world projects",
-      link : "https://www.youtube.com/watch?v=2Vf1D-rUMwE"
+      thumbnail:
+        "https://i.ytimg.com/vi/lAFbKzO-fss/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCzwrq0jp1Kua9fejZF79Kq1Malbw",
+      title: "MERN Stack Development",
+      description: "Master MERN stack by building real world projects",
+      link: "https://www.youtube.com/watch?v=2Vf1D-rUMwE",
     },
-  ]
+  ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

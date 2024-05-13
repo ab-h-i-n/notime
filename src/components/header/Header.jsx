@@ -22,7 +22,11 @@ const Header = () => {
         className="bg-[#0000006b] z-50 backdrop-blur-md fixed top-0 left-0 w-screen flex justify-between items-center py-5 px-10 border-b-[1px] border-[#ffffff22] lg:px-72"
       >
         {/* logo  */}
-        <Link to={'/'}>
+        <Link to={'/'} onClick={()=>{
+          if(isOpen){
+            toggleOpen()
+          }
+        }}>
           <div className="inline-flex items-center gap-4">
             <img src="/notime-logo.svg" alt="logo" className="w-20 lg:w-24" />
             <h1 className="text-white font-semibold text-xl lg:text-2xl">

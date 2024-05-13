@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 const Banner = ({ text }) => {
   const containerRef = useRef(null);
@@ -24,7 +25,12 @@ const Banner = ({ text }) => {
   }, []);
 
   return (
-    <div className="bg-[#181d24] py-20 px-20 rounded-md relative">
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.3 }}
+      className="bg-[#181d24] py-20 px-20 rounded-md relative"
+    >
       {/* banner title */}
       <div className="text-white text-4xl xl:text-6xl text-center font-bold relative z-40">
         {text}
@@ -56,13 +62,9 @@ const Banner = ({ text }) => {
         />
         <img src="/mongodb.svg" alt="mongo" className="w-10 md:w-16 absolute" />
         <img src="/nodejs.svg" alt="node" className="w-10 md:w-16 absolute" />
-        <img
-          src="/react.svg"
-          alt="react"
-          className="w-10 md:w-16 absolute"
-        />
+        <img src="/react.svg" alt="react" className="w-10 md:w-16 absolute" />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

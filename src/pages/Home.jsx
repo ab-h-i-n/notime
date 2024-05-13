@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../components/header/Header";
 import GradientText from "../components/GradientText";
 import ReviewCard from "../components/home/ReviewCard";
@@ -8,8 +8,14 @@ import { reviews } from "../Reviews";
 import "swiper/css";
 import { motion } from "framer-motion";
 import Button from "../components/home/Button";
+import { Link } from "react-router-dom";
+
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className="min-h-screen w-screen text-white pt-32 xl:pt-48 grid grid-cols-1 lg:grid-cols-2 xl:px-48 ">
       {/* left side  */}
@@ -44,18 +50,22 @@ const Home = () => {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="grid gap-10 px-5 lg:grid-cols-2 lg:px-0"
         >
-          <Button
-            text={"Courses"}
-            gradient={
-              "bg-gradient-to-r from-green-500 to-green-800 white-shadow"
-            }
-          />
-          <Button
-            text={"Student Projects"}
-            gradient={
-              "bg-gradient-to-r from-yellow-500 to-yellow-800 dark-shadow"
-            }
-          />
+          <Link to={"/mern-stack-development"}>
+            <Button
+              text={"MERN Stack Development"}
+              gradient={
+                "bg-gradient-to-r from-green-500 to-green-800 white-shadow"
+              }
+            />
+          </Link>
+          <Link to={"/student-projects"}>
+            <Button
+              text={"Student Projects"}
+              gradient={
+                "bg-gradient-to-r from-yellow-500 to-yellow-800 dark-shadow"
+              }
+            />
+          </Link>
         </motion.div>
       </div>
 

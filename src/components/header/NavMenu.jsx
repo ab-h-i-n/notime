@@ -26,9 +26,9 @@ const NavMenu = ({ isOpen, setIsOpen }) => {
 
   const menuLinks = [
     {
-      name: "Courses",
-      url: "/courses",
-      icon: "/courses-icon.svg",
+      name: "MERN Stack Development",
+      url: "/mern-stack-development",
+      icon: "/mern-stack-icon.svg",
     },
     {
       name: "Student Projects",
@@ -58,7 +58,7 @@ const NavMenu = ({ isOpen, setIsOpen }) => {
 
   return (
     <motion.div
-      className="bg-[#111318] overflow-hidden fixed z-[100] h-[calc(100vh-79px)] w-80 right-0 top-[85px] lg:h-auto lg:top-[88px] lg:right-60"
+      className="bg-[#111318] overflow-hidden fixed z-[100] h-[calc(100vh-79px)] w-fit right-0 top-[85px] lg:h-auto lg:top-[88px] lg:right-60"
       variants={menuVariants}
       animate={isOpen ? "open" : "closed"}
     >

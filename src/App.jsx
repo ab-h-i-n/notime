@@ -6,6 +6,7 @@ import YoutubeVideos from "./pages/YoutubeVideos";
 import StudentProjects from "./pages/StudentProjects";
 import ContactUs from "./pages/ContactUs";
 import { client } from "./utils/sanity/client";
+import MernStack from "./pages/MernStack";
 
 function App() {
   
@@ -24,7 +25,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/courses" element={<Courses />} />
+          {/* <Route path="/courses" element={<Courses />} /> */}
+          <Route path="/mern-stack-development" element={<MernStack />} />
           <Route path="/student-projects" element={<StudentProjects />} />
           <Route path="/youtube-videos" element={<YoutubeVideos />} />
           <Route path="/contact-us" element={<ContactUs />} />
