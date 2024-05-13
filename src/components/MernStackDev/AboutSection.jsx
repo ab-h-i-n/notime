@@ -4,9 +4,9 @@ import ReactSites from "./ReactSites";
 
 const AboutSection = () => {
   return (
-    <div className="text-slate-300 my-10 grid gap-4">
+    <div className="text-slate-300 grid gap-4 ">
       {/* Heading  */}
-      <h1 className="text-white font-bold text-2xl">
+      <h1 className="text-white font-bold text-2xl md:text-[2rem] lg:text-[3rem]">
         Enter the new era of React.
       </h1>
       {/* sub heading  */}
