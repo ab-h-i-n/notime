@@ -23,6 +23,9 @@ const AboutSection = () => {
       <div>
         <ReactSites/>
       </div>
+
+      <P>Again, it's a little known fact.</P>
+      <P className={'font-semibold'}>MERN stands for MongoDB, Express.js, React.js, and Node.js. It is a popular JavaScript-based full-stack development solution for building web applications.</P>
     </div>
   );
 };
