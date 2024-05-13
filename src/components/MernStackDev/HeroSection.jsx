@@ -1,64 +1,80 @@
 import React from "react";
 import ScrollDownButton from "./ScrollDownButton";
 import P from "./P";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
+  const motionAttributes = {
+    initial: { opacity: 0, y: 100 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.3 }
+  };
+
   return (
-    <div className="text-center grid gap-10 place-items-center">
-      {/* headings  */}
-
-      <div className="grid gap-5">
-        {/* top heading  */}
-        <p className="text-[#6cffb3] font-medium tracking-[1px]">
+    <motion.div {...motionAttributes} className="text-center grid gap-10 place-items-center">
+      {/* headings */}
+      <motion.div {...motionAttributes} transition={{ ...motionAttributes.transition, delay: 0.1 }} className="grid gap-5">
+        {/* top heading */}
+        <motion.p {...motionAttributes} transition={{ ...motionAttributes.transition, delay: 0.2 }} className="text-[#6cffb3] font-medium tracking-[1px]">
           FOR DEVELOPERS WHO WANT TO STAND OUT AND BECOME IRREPLACEABLE
-        </p>
+        </motion.p>
 
-        {/* main heading  */}
-        <p className="text-[2rem] leading-[2rem] md:text-[4rem] md:leading-[4rem]  font-bold">
+        {/* main heading */}
+        <motion.p
+          {...motionAttributes}
+          transition={{ ...motionAttributes.transition, delay: 0.3 }}
+          className="text-[2rem] leading-[2rem] md:text-[4rem] md:leading-[4rem] font-bold"
+        >
           Become a top 1%{" "}
           <span className="bg-gradient-to-r from-yellow-400 to-yellow-700 bg-overlay">
             MERN Stack
           </span>{" "}
           developer in only one course
-        </p>
-        {/* sub heading  */}
-        <p className="font-medium text-slate-300 md:text-[1.3rem] md:px-10 lg:text-[1.7rem]">
+        </motion.p>
+
+        {/* sub heading */}
+        <motion.p
+          {...motionAttributes}
+          transition={{ ...motionAttributes.transition, delay: 0.4 }}
+          className="font-medium text-slate-300 md:text-[1.3rem] md:px-10 lg:text-[1.7rem]"
+        >
           Escape the shallow content & dive deep into the hottest tech of 2024
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
-      {/* image  */}
-
-      <div>
+      {/* image */}
+      <motion.div {...motionAttributes} transition={{ ...motionAttributes.transition, delay: 0.5 }}>
         <img
           className="w-[400px] lg:w-[550px]"
           src="/mern-stack-development.png"
           alt="mern-stack-development"
         />
-      </div>
+      </motion.div>
 
-      {/* uptodate mark  */}
-
-      <div className="flex items-center gap-3 justify-center">
-        {/* verifed icon  */}
+      {/* uptodate mark */}
+      <motion.div {...motionAttributes} transition={{ ...motionAttributes.transition, delay: 0.6 }} className="flex items-center gap-3 justify-center">
+        {/* verified icon */}
         <img src="/verfied-icon.svg" alt="verified" className="w-9" />
         <p className="font-semibold text-lg text-slate-300">Up to Date</p>
-
         {/* Date */}
         <div className="bg-[#0000006d] text-[#5feda4] font-bold p-3 rounded-md w-fit">
           MAY 13, 2024
         </div>
-      </div>
+      </motion.div>
 
-      {/* description  */}
-      <P className={'md:px-10 lg:px-32 xl:px-[23%]'}>
-        Read the page if you want every single piece of information. Or just
-        scroll to the main details by clicking the button below.
-      </P>
+      {/* description */}
+      <motion.div {...motionAttributes} transition={{ ...motionAttributes.transition, delay: 0.7 }}>
+        <P className={'md:px-10 lg:px-32 xl:px-[23%]'}>
+          Read the page if you want every single piece of information. Or just
+          scroll to the main details by clicking the button below.
+        </P>
+      </motion.div>
 
-      {/* scroll to details button  */}
-      <ScrollDownButton text={"Scroll to the Detail"} to={"#detail"} />
-    </div>
+      {/* scroll to details button */}
+      <motion.div {...motionAttributes} transition={{ ...motionAttributes.transition, delay: 0.8 }}>
+        <ScrollDownButton text={"Scroll to the Detail"} to={"#detail"} />
+      </motion.div>
+    </motion.div>
   );
 };
 

@@ -7,8 +7,9 @@ const MernStack = () => {
   }, []);
 
   return <div className="min-h-screen py-40 px-5 md:px-10 lg:px-16 xl:px-[20%] text-white">
-
+    {/* hero section  */}
     <HeroSection />
+    
 
   </div>;
 };
