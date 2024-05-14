@@ -31,3 +31,24 @@ body{
 .dark-shadow{
   box-shadow: 5px 5px 0px #1b222b;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #19202b;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2b3042; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:  #4a516b; 
+}

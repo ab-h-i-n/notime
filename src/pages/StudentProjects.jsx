@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Banner from "../components/Banner";
 import ProjectCard from "../components/student-projects/ProjectCard";
+import ScrollProgressIndicator from "../components/ScrollProgressIndicator";
 
 const StudentProjects = () => {
   const projects = [
@@ -52,6 +53,7 @@ const StudentProjects = () => {
 
   return (
     <div className="min-h-screen py-40 px-5 md:px-10 lg:px-16 xl:px-[15%]">
+      <ScrollProgressIndicator/>
       <Banner text="Student Projects" />
 
       {/* courses  */}

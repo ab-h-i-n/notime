@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Banner from "../components/Banner";
 import VideoCard from "../components/youtube-videos/VideoCard";
+import ScrollProgressIndicator from "../components/ScrollProgressIndicator";
 
 const YoutubeVideos = () => {
   const videos = [
@@ -41,6 +42,7 @@ const YoutubeVideos = () => {
   return (
     <>
       <div className="min-h-screen py-40 px-5 md:px-10 lg:px-16 xl:px-[15%]">
+        <ScrollProgressIndicator/>
         <Banner text="Youtube Videos" />
 
         {/* courses  */}

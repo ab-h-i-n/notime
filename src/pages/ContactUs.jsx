@@ -16,7 +16,7 @@ const ContactUs = () => {
   }, []);
 
   return (
-    <div className="min-h-screen py-32 px-5 md:py-44 md:px-10 lg:px-16 xl:px-[15%]">
+    <div className="h-auto py-32 px-5 md:py-44 md:px-10 lg:px-16 xl:px-[15%]">
       {/* container  */}
       <motion.div
         initial={{ opacity: 0, y: 100 }}
