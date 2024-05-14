@@ -12,7 +12,7 @@ export const Logo = ({logo}) => {
 
 const ReactSites = () => {
   return (
-    <div className='grid grid-cols-3 gap-3 w-fit md:gap-5 lg:gap-7 xl:gap-10 xl:grid-cols-4'>
+    <div className='grid grid-cols-3 gap-3 w-fit md:gap-10 md:grid-cols-4'>
         {
             logos.map((logo, index) => (
                 <Logo key={index} logo={logo} />

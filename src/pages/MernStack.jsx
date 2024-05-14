@@ -12,7 +12,7 @@ const MernStack = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  return <div className="min-h-screen py-40 px-5 md:px-10 lg:px-16 xl:px-[20%] text-white grid gap-10 lg:gap-32 place-content-center w-screen overflow-hidden">
+  return <div className="min-h-screen py-40 px-5 md:px-10 lg:px-16 xl:px-[20%] text-white grid gap-10 lg:gap-32 place-items-center">
     {/* scroll progress indicator  */}
     <motion.div style={{ scaleX : scaleX }} className={`w-screen origin-left fixed top-0 left-0 h-1 bg-gradient-to-r from-green-500 to-yellow-500 z-[100]`} ></motion.div>
 
