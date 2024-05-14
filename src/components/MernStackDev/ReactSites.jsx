@@ -4,9 +4,9 @@ import { logos } from '../../Logos'
 
 export const Logo = ({logo}) => {
     return (
-        <div className='bg-[#161821] p-5 w-28 aspect-square rounded-lg grid place-content-center'>
+        <abbr title={logo.title} className='bg-[#161821] p-5 w-28 aspect-square rounded-lg grid place-content-center'>
             <img className={`w-10 ${logo.className}`} src={`/react-sites${logo.url}`} alt={logo.title} />
-        </div>
+        </abbr>
     )
 }
 
