@@ -2,6 +2,7 @@ import React from "react";
 import ScrollDownButton from "./ScrollDownButton";
 import P from "./P";
 import { motion } from "framer-motion";
+import MainImage from "./MainImage";
 
 const HeroSection = () => {
   const motionAttributes = {
@@ -15,7 +16,7 @@ const HeroSection = () => {
       {/* headings */}
       <motion.div {...motionAttributes} transition={{ ...motionAttributes.transition, delay: 0.1 }} className="grid gap-5">
         {/* top heading */}
-        <motion.p {...motionAttributes} transition={{ ...motionAttributes.transition, delay: 0.2 }} className="text-[#6cffb3] font-medium tracking-[1px]">
+        <motion.p {...motionAttributes} transition={{ ...motionAttributes.transition, delay: 0.2 }} className="text-[#6ce2ff] font-medium tracking-[1px]">
           FOR DEVELOPERS WHO WANT TO STAND OUT AND BECOME IRREPLACEABLE
         </motion.p>
 
@@ -26,7 +27,7 @@ const HeroSection = () => {
           className="text-[2rem] leading-[2rem] md:text-[4rem] md:leading-[4rem] font-bold"
         >
           Become a top 1%{" "}
-          <span className="bg-gradient-to-r from-yellow-400 to-yellow-700 bg-overlay">
+          <span className="bg-gradient-to-r from-green-400 to-yellow-500 bg-overlay">
             MERN Stack
           </span>{" "}
           developer in only one course
@@ -44,11 +45,7 @@ const HeroSection = () => {
 
       {/* image */}
       <motion.div {...motionAttributes} transition={{ ...motionAttributes.transition, delay: 0.5 }}>
-        <img
-          className="w-[400px] lg:w-[550px]"
-          src="/mern-stack-development.png"
-          alt="mern-stack-development"
-        />
+        <MainImage/>
       </motion.div>
 
       {/* uptodate mark */}
