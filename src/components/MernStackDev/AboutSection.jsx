@@ -1,14 +1,13 @@
 import React from "react";
 import P from "./P";
 import ReactSites from "./ReactSites";
+import H1 from "./H1";
 
 const AboutSection = () => {
   return (
       <div className="text-slate-300 grid gap-4 max-w-2xl">
         {/* Heading  */}
-        <h1 className="text-white font-bold text-2xl md:text-[2rem] lg:text-[3rem] leading-[3rem]">
-          Enter the new era of React.
-        </h1>
+        <H1>Enter the new era of React.</H1>
         {/* sub heading  */}
 
         <P>Here’s a little known fact.</P>

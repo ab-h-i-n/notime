@@ -29,7 +29,8 @@ body{
 }
 
 .dark-shadow{
-  box-shadow: 5px 5px 0px #1b222b;
+  box-shadow: 5px 6px 0px #1b222b;
+  border: 3px solid #0D1117;
 }
 
 
