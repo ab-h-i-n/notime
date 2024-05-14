@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import H1 from "./H1";
-import P from "./P";
-import GradientText from "../GradientText";
-import NormalButton from "./NormalButton";
+import H1 from "../common/H1";
+import P from "../common/P";
+import GradientText from "../common/GradientText";
+import NormalButton from "../common/NormalButton";
 import SheduleTestForm from "./SheduleTestForm";
 import { motion } from "framer-motion";
 
@@ -43,8 +43,8 @@ const FreeTestSection = () => {
       <SheduleTestForm isOpen={isOpen} setFormOpen={setFormOpen} />
       {/* Form open button  */}
       <motion.div
-      variants={buttonVariants}
-      animate={isOpen ? "hidden" : "visible"}
+        variants={buttonVariants}
+        animate={isOpen ? "hidden" : "visible"}
       >
         <NormalButton
           onClick={() => setFormOpen(true)}

@@ -1,30 +1,32 @@
 import React, { useEffect } from "react";
 import HeroSection from "../components/MernStackDev/HeroSection";
 import AboutSection from "../components/MernStackDev/AboutSection";
-import ScrollProgressIndicator from "../components/ScrollProgressIndicator";
+import ScrollProgressIndicator from "../components/common/ScrollProgressIndicator";
 import FreeTestSection from "../components/MernStackDev/FreeTestSection";
+import PossibilitiesSection from "../components/MernStackDev/PossibilitiesSection";
 
 const MernStack = () => {
-
-
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  return <div className="min-h-screen w-screen overflow-hidden py-40 px-5 md:px-10 lg:px-16 xl:px-[20%] text-white grid gap-10 lg:gap-32 place-items-center">
-    <ScrollProgressIndicator/>
+  return (
+    <div className="min-h-screen w-screen overflow-hidden py-40 px-5 md:px-10 lg:px-16 xl:px-[20%] text-white grid gap-10 lg:gap-32 place-items-center">
+      <ScrollProgressIndicator />
 
-    {/* hero section  */}
-    <HeroSection />
+      {/* hero section  */}
+      <HeroSection />
 
-    {/* About MERN Stack  */}
-    <AboutSection/>
+      {/* About MERN Stack  */}
+      <AboutSection />
 
-    {/* Free Test  */}
-    <FreeTestSection/>
+      {/* possibilities  */}
+      <PossibilitiesSection />
 
-  </div>;
+      {/* Free Test  */}
+      <FreeTestSection />
+    </div>
+  );
 };
 
 export default MernStack;

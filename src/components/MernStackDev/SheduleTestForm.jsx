@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import NormalButton from "./NormalButton";
+import NormalButton from "../common/NormalButton";
 
 const SheduleTestForm = ({ isOpen, setFormOpen }) => {
   const dateRef = useRef(null);

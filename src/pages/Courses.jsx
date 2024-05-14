@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import Banner from "../components/Banner";
+import Banner from "../components/common/Banner";
 import CourseCard from "../components/courses/CourseCard";
-import ScrollProgressIndicator from "../components/ScrollProgressIndicator";
-
+import ScrollProgressIndicator from "../components/common/ScrollProgressIndicator";
 
 const Courses = () => {
   const courses = [
@@ -38,7 +37,7 @@ const Courses = () => {
 
   return (
     <div className="min-h-screen py-40 px-5 md:px-10 lg:px-16 xl:px-[15%]">
-      <ScrollProgressIndicator/>
+      <ScrollProgressIndicator />
       <Banner text="Courses" />
 
       {/* courses  */}

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Header from "../components/header/Header";
-import GradientText from "../components/GradientText";
+import GradientText from "../components/common/GradientText";
 import ReviewCard from "../components/home/ReviewCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -9,7 +9,6 @@ import "swiper/css";
 import { motion } from "framer-motion";
 import Button from "../components/home/Button";
 import { Link } from "react-router-dom";
-
 
 const Home = () => {
   useEffect(() => {

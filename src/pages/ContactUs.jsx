@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import GradientText from "../components/GradientText";
-import ToggleBtn from "../components/ToggleBtn";
+import GradientText from "../components/common/GradientText";
+import ToggleBtn from "../components/common/ToggleBtn";
 import { useCycle, motion } from "framer-motion";
 
 const ContactUs = () => {
