@@ -1,26 +1,56 @@
-import React from 'react'
-import { logos } from '../../Logos'
+import React from "react";
+import { logos } from "../../Logos";
+import { motion } from "framer-motion";
 
-
-export const Logo = ({logo}) => {
-    return (
-        <abbr title={logo.title} className='bg-[#161821] p-5 w-28 aspect-square rounded-lg grid place-content-center'>
-            <img className={`w-10 ${logo.className}`} src={`/react-sites${logo.url}`} alt={logo.title} />
-        </abbr>
-    )
-}
+export const Logo = ({ logo }) => {
+  return (
+    <abbr
+      title={logo.title}
+      className="bg-[#161821] p-5 w-28 aspect-square rounded-lg grid place-content-center"
+    >
+      <img
+        className={`w-10 ${logo.className}`}
+        src={`/react-sites${logo.url}`}
+        alt={logo.title}
+      />
+    </abbr>
+  );
+};
 
 const ReactSites = () => {
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
-    <div className='grid grid-cols-3 gap-3 w-fit md:gap-10 md:grid-cols-4'>
-        {
-            logos.map((logo, index) => (
-                <Logo key={index} logo={logo} />
-            ))
-        }
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView={'visible'}
+      className="grid grid-cols-3 gap-3 w-fit md:gap-10 md:grid-cols-4"
+    >
+      {logos.map((logo, index) => (
+        <motion.div
+          key={`logo_${index}`}
+          variants={itemVariants}
+          className={`logo_${index}`}
+        >
+          <Logo logo={logo} />
+        </motion.div>
+      ))}
+    </motion.div>
+  );
+};
 
-    </div>
-  )
-}
-
-export default ReactSites
+export default ReactSites;
