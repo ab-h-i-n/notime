@@ -16,15 +16,15 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="min-h-screen w-screen text-white pt-24 xl:pt-48 grid grid-cols-1 lg:grid-cols-2 xl:px-48 ">
+    <section className="min-h-screen w-screen text-white grid grid-cols-1 px-5 md:px-10 lg:px-12 pt-24 md:pt-32 lg:justify-center lg:grid-cols-2 xl:px-[10%] xl:pt-48">
       {/* left side  */}
-      <div className="flex-1 h-min grid gap-6 lg:w-[500px] xl:w-full px-5 md:px-10 lg:px-12 xl:pl-20">
+      <div className="flex-1 h-min grid gap-6 md:w-[650px] lg:w-[500px] xl:w-[650px] ">
         {/* heading  */}
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="font-bold pr-3 text-[3rem] lg:text-[4rem] leading-[3.5rem] xl:leading-[5rem] "
+          className="font-bold pr-3 text-[3rem] md:text-[4rem] leading-[3.5rem] md:leading-[4rem] xl:leading-[5rem] "
         >
           <GradientText>Master</GradientText> <span>Modern</span> Web
           Development With a <GradientText>Project Based</GradientText> Approach
@@ -47,7 +47,7 @@ const Home = () => {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="grid gap-6 md:gap-10 px-5 lg:grid-cols-2 lg:px-0"
+          className="grid gap-6 xl:grid-cols-2 "
         >
           <Link to={"/mern-stack-development"}>
             <Button
@@ -73,7 +73,7 @@ const Home = () => {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.7 }}
-        className="h-min w-full my-20 xl:my-0"
+        className="h-min w-full my-20 md:my-10 xl:my-0"
       >
         <Swiper
           autoplay={{
