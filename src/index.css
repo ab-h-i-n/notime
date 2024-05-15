@@ -53,3 +53,11 @@ body{
 ::-webkit-scrollbar-thumb:hover {
   background:  #4a516b; 
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}

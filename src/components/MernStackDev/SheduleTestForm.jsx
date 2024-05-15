@@ -1,12 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import NormalButton from "../common/NormalButton";
+import { Datepicker } from "flowbite-react";
 
-const SheduleTestForm = ({ isOpen, setFormOpen }) => {
-  const dateRef = useRef(null);
-  const timeRef = useRef(null);
-  const [dateFilled, setDateFilled] = useState(false);
-  const [timeFilled, setTimeFilled] = useState(false);
+const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
 
   const varients = {
     open: {
@@ -25,13 +22,6 @@ const SheduleTestForm = ({ isOpen, setFormOpen }) => {
     },
   };
 
-  const handleDateChange = () => {
-    setDateFilled(dateRef.current.value !== "");
-  };
-
-  const handleTimeChange = () => {
-    setTimeFilled(timeRef.current.value !== "");
-  };
 
   return (
     <motion.div
@@ -68,44 +58,23 @@ const SheduleTestForm = ({ isOpen, setFormOpen }) => {
         />
 
         {/* date */}
-        <div className="relative flex items-center">
-          <label
-            htmlFor="date"
-            className={`opacity-50 absolute left-2 lg:hidden ${
-              dateFilled ? "hidden" : ""
-            }`}
-          >
-            Date
-          </label>
-          <input
-            ref={dateRef}
-            className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
-            type="date"
-            name="date"
-            id="date"
-            onChange={handleDateChange}
-          />
-        </div>
+        <input
+          className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
+          type="date"
+          name="date"
+          id="date"
+          defaultValue={new Date().toISOString().split("T")[0]}
+        />
 
         {/* time */}
-        <div className="relative flex items-center">
-          <label
-            htmlFor="time"
-            className={`opacity-50 absolute left-2 lg:hidden ${
-              timeFilled ? "hidden" : ""
-            }`}
-          >
-            Time
-          </label>
-          <input
-            ref={timeRef}
-            className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
-            type="time"
-            name="time"
-            id="time"
-            onChange={handleTimeChange}
-          />
-        </div>
+
+        <input
+          className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
+          type="time"
+          name="time"
+          id="time"
+          defaultValue={currentTime}
+        />
 
         {/* buttons */}
         <div className="flex items-center gap-5">

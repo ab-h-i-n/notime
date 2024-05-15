@@ -95,6 +95,9 @@ const Home = () => {
           ))}
         </Swiper>
       </motion.div>
+
+      {/* bottom  */}
+      
     </section>
   );
 };

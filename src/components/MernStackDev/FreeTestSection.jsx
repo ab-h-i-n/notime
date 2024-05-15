@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import H1 from "../common/H1";
 import P from "../common/P";
 import GradientText from "../common/GradientText";
@@ -8,6 +8,18 @@ import { motion } from "framer-motion";
 
 const FreeTestSection = () => {
   const [isOpen, setFormOpen] = useState(false);
+  const [currentTime, setCurrentTime] = useState();
+
+  const getTime = () => {
+    const currTime = new Date().toLocaleTimeString("en-US", {
+      hour12: false,
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+
+    setCurrentTime(currTime);
+  };
 
   const buttonVariants = {
     hidden: {
@@ -22,6 +34,10 @@ const FreeTestSection = () => {
       },
     },
   };
+
+  useEffect(()=>{
+    getTime();
+  },[])
 
   return (
     <div className="text-white max-w-2xl grid gap-4">
@@ -40,11 +56,12 @@ const FreeTestSection = () => {
         confidence and embark on your path to success!
       </P>
       {/* form  */}
-      <SheduleTestForm isOpen={isOpen} setFormOpen={setFormOpen} />
+      <SheduleTestForm currentTime={currentTime} isOpen={isOpen} setFormOpen={setFormOpen} />
       {/* Form open button  */}
       <motion.div
         variants={buttonVariants}
         animate={isOpen ? "hidden" : "visible"}
+        onClick={() => getTime()}
       >
         <NormalButton
           onClick={() => setFormOpen(true)}
