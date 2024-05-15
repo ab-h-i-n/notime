@@ -11,7 +11,7 @@ const PossibilitieCard = ({ heading, children, arrange }) => {
 
   return (
     <motion.div initial={{ opacity : 0 , y : 100 }} whileInView={{ opacity : 1 , y : 0  }} onViewportEnter={{ margin : "-80%" }} onViewportLeave={{ margin : "0%" }} ref={ref} className={`flex items-center ${arrange}`}>
-      <div className="w-[300px] md:w-[400px] lg:w-[600px] p-[0.02rem] md:p-[0.1rem] grid place-items-center rounded-xl overflow-hidden relative">
+      <div className="w-[300px] md:w-[400px] lg:w-[600px] p-[0.04rem] md:p-[0.1rem] grid place-items-center rounded-xl overflow-hidden relative">
         <motion.div style={{ scaleY : scaleY }} transition={{ duration: 0.5 , ease : 'easeInOut' }} className="origin-top absolute w-full h-full bg-gradient-to-br from-yellow-500 to-green-500"></motion.div>
         <div className="p-5 md:p-10 lg:py-20 rounded-xl bg-[#090c10] z-49 relative ">
           <h1 className="text-lg md:text-xl lg:text-2xl xl:text-[2.2rem] font-semibold">{heading}</h1>

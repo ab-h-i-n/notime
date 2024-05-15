@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import HeroSection from "../components/MernStackDev/HeroSection";
-import AboutSection from "../components/MernStackDev/AboutSection";
+import NewEraSection from "../components/MernStackDev/NewEraSection";
 import ScrollProgressIndicator from "../components/common/ScrollProgressIndicator";
 import FreeTestSection from "../components/MernStackDev/FreeTestSection";
 import PossibilitiesSection from "../components/MernStackDev/PossibilitiesSection";
+import IceBergSection from "../components/MernStackDev/IceBergSection";
 
 const MernStack = () => {
   useEffect(() => {
@@ -17,8 +18,12 @@ const MernStack = () => {
       {/* hero section  */}
       <HeroSection />
 
-      {/* About MERN Stack  */}
-      <AboutSection />
+      {/* NewEra MERN Stack  */}
+      <NewEraSection />
+
+      {/* IceBergSection  */}
+
+      <IceBergSection />
 
       {/* possibilities  */}
       <PossibilitiesSection />

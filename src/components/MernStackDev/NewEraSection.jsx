@@ -3,7 +3,7 @@ import P from "../common/P";
 import ReactSites from "./ReactSites";
 import H1 from "../common/H1";
 
-const AboutSection = () => {
+const NewEraSection = () => {
   return (
     <div className="text-slate-300 grid gap-4 max-w-2xl">
       {/* Heading  */}
@@ -33,4 +33,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default NewEraSection;
