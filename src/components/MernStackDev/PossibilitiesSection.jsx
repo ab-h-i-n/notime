@@ -13,7 +13,7 @@ const PossibilitiesSection = () => {
   var scaleY = useTransform(scrollYProgressLine, [0, 1], ["120%", "-20%"]);
 
   return (
-    <div className="grid gap-4">
+    <div className="grid gap-4 max-w-2xl">
       {/* heading  */}
 
       <H1>Career Paths After the Course</H1>
