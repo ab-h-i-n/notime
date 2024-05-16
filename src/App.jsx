@@ -10,20 +10,12 @@ import MernStack from "./pages/MernStack";
 import { Toaster } from "react-hot-toast";
 
 function App() {
-  // async function getContent() {
-  //   const CONTENT_QUERY = `*[_type == "page"]`;
-  //   const content = await client.fetch(CONTENT_QUERY);
-  //   return content;
-  // }
-
-  // // Log content to console
-  // getContent().then((content) => console.log(content));
 
   return (
     <main className="bg-[#0D1117]">
       <BrowserRouter>
         <Header />
-        <Toaster position="bottom-right" reverseOrder={false} />
+        <Toaster position="bottom-center" reverseOrder={false} />
         <Routes>
           <Route path="/" element={<Home />} />
           {/* <Route path="/courses" element={<Courses />} /> */}

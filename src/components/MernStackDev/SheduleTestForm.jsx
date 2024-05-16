@@ -5,7 +5,6 @@ import { ValidateAndSubmit } from "../../actions/FreeTestForm";
 
 const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
   const date = new Date().toISOString().split("T")[0];
-  const time = new Date().toLocaleTimeString().split(" ")[0];
 
   const varients = {
     open: {
@@ -28,9 +27,13 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
     name: "",
     email: "",
     phone: "",
-    date: date,
-    time: time,
+    date: "",
+    time: "",
   });
+
+  useEffect(()=>{
+    setForm({...form,time : currentTime , date : date})
+  },[currentTime])
 
   useEffect(() => {
     console.log(form);
@@ -85,6 +88,7 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
           type="date"
           name="date"
           id="date"
+          min={date}
           defaultValue={date}
           onChange={(e) => setForm({ ...form, date: e.target.value })}
         />
@@ -97,7 +101,6 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
           name="time"
           id="time"
           min={currentTime}
-          max={"24:00"}
           defaultValue={currentTime}
           onChange={(e) => setForm({ ...form, time: e.target.value })}
         />

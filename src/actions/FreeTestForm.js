@@ -65,7 +65,7 @@ const SubmitForm = async (form) => {
 
     if (json.error) {
         console.log(json.error);
-        return;
+        return
     }else{
         return ;
     }

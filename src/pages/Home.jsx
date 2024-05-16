@@ -9,6 +9,7 @@ import "swiper/css";
 import { motion } from "framer-motion";
 import Button from "../components/home/Button";
 import { Link } from "react-router-dom";
+import SocialLinks from "../components/home/SocialLinks";
 
 const Home = () => {
   useEffect(() => {
@@ -97,7 +98,10 @@ const Home = () => {
       </motion.div>
 
       {/* bottom  */}
-      
+      <div>
+        <SocialLinks/>
+      </div>
+
     </section>
   );
 };
