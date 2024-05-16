@@ -5,9 +5,9 @@ import Courses from "./pages/Courses";
 import YoutubeVideos from "./pages/YoutubeVideos";
 import StudentProjects from "./pages/StudentProjects";
 import ContactUs from "./pages/ContactUs";
-import { client } from "./utils/sanity/client";
 import MernStack from "./pages/MernStack";
 import { Toaster } from "react-hot-toast";
+
 
 function App() {
 

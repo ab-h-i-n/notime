@@ -1,6 +1,7 @@
 import React from "react";
 
 const ReviewCard = ({ image, name, position, review }) => {
+
   return (
     <div className=" flex justify-center py-5 px-6 cursor-pointer">
       <div className="py-12 xl:py-16 pt-16 xl:pt-20 relative w-[350px] xl:w-[450px]">

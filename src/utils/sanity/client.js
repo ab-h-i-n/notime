@@ -1,7 +1,7 @@
 import { createClient } from "@sanity/client"
 
 export const client = createClient({
-   projectId: "0v5sddep", 
+   projectId: "tgzcz07i", 
    dataset: "production", 
    apiVersion: "2024-03-11",
    // Set to `true` for production environments

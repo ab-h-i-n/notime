@@ -1,20 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/header/Header";
 import GradientText from "../components/common/GradientText";
 import ReviewCard from "../components/home/ReviewCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import { reviews } from "../Reviews";
+// import { reviews } from "../Reviews";
 import "swiper/css";
 import { motion } from "framer-motion";
 import Button from "../components/home/Button";
 import { Link } from "react-router-dom";
 import SocialLinks from "../components/home/SocialLinks";
 import Founder from "../components/home/Founder";
+import { client } from "../utils/sanity/client";
+import imageUrlBuilder from '@sanity/image-url'
+
 
 const Home = () => {
+
+  const [ reviews, setReviews ] = useState();
+  const builder = imageUrlBuilder(client)
+
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      const reviews = await client.fetch(`*[_type == "review"]{
+        image,
+        review,
+        name,
+        position
+      }`);
+      setReviews(reviews);
+    };
+
+    fetchReviews();
   }, []);
 
   return (
@@ -88,10 +109,10 @@ const Home = () => {
             modules={[Autoplay]}
             className="mySwiper z-10"
           >
-            {reviews.map((review, index) => (
+            {reviews?.map((review, index) => (
               <SwiperSlide key={`review_${index}`}>
                 <ReviewCard
-                  image={review.image}
+                  image={builder.image(review.image).url()}
                   name={review.name}
                   position={review.position}
                   review={review.review}
