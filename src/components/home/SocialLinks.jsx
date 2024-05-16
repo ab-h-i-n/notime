@@ -18,17 +18,44 @@ const SocialLinks = () => {
     {
       img: "/social/instagram.svg",
       link: "https://www.instagram.com/notime.co.in/",
-    }
+    },
   ];
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.5,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div className="flex gap-10 py-10">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView={"visible"}
+      viewport={{ once: true }}
+      className="flex gap-10 py-10 overflow-hidden px-1"
+    >
       {links.map((link, index) => (
-        <motion.a whileHover={{ scale : 1.2 , y : -20 }} key={`social_link_${index}`} href={link.link}>
-          <img src={link.img} alt="social" className="w-8 lg:w-6 xl:w-8" />
-        </motion.a>
+        <a key={`social_link_${index}`} href={link.link}>
+          <motion.div
+            variants={itemVariants}
+            whileHover={{ scale: 1.2, y: -20 }}
+            viewport={{ once: true }}
+          >
+            <img src={link.img} alt="social" className="w-8 lg:w-6 xl:w-8" />
+          </motion.div>
+        </a>
       ))}
-    </div>
+    </motion.div>
   );
 };
 
