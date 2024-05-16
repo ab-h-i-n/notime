@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import Button from "../components/home/Button";
 import { Link } from "react-router-dom";
 import SocialLinks from "../components/home/SocialLinks";
+import Founder from "../components/home/Founder";
 
 const Home = () => {
   useEffect(() => {
@@ -19,7 +20,7 @@ const Home = () => {
   return (
     <section className="min-h-screen w-screen text-white grid grid-cols-1 px-5 md:px-10 lg:px-12 pt-24 md:pt-32 lg:justify-center lg:grid-cols-2 xl:px-[10%] xl:pt-48">
       {/* left side  */}
-      <div className="flex-1 h-min grid gap-6 md:w-[650px] lg:w-[500px] xl:w-[650px] ">
+      <div className="flex-1 h-fit grid gap-6 md:w-[650px] lg:w-[500px] xl:w-[650px] ">
         {/* heading  */}
         <motion.div
           initial={{ opacity: 0, y: 100 }}
@@ -48,7 +49,7 @@ const Home = () => {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="grid gap-6 xl:grid-cols-2 "
+          className="grid gap-6 justify-center lg:justify-start xl:grid-cols-2 "
         >
           <Link to={"/mern-stack-development"}>
             <Button
@@ -98,10 +99,10 @@ const Home = () => {
       </motion.div>
 
       {/* bottom  */}
-      <div>
-        <SocialLinks/>
+      <div className="grid place-items-center gap-20 lg:gap-3 xl:grid-cols-2 lg:fixed lg:bottom-[3.5rem] lg:right-20 xl:w-screen relative">
+        <Founder />
+        <SocialLinks />
       </div>
-
     </section>
   );
 };
