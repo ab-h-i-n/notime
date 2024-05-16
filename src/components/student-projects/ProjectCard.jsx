@@ -15,11 +15,11 @@ const ProjectCard = ({ project }) => {
         className="max-w-sm bg-[#0e1116] border-[#252d39] border rounded-lg shadow "
       >
         {/* thumbnail  */}
-        <a href={project?.link} className="relative cursor-pointer">
+        <a target="_blank" href={project?.project_link} className="relative cursor-pointer">
           <motion.div
             initial={{ opacity: 0 }}
             whileHover={{ opacity: 1 }}
-            className=" absolute top-0 left-0 w-full h-full backdrop-blur-sm text-white font-medium text-2xl grid place-content-center "
+            className=" absolute top-0 left-0 w-full h-full bg-[#00000071] rounded-t-lg backdrop-blur-sm text-white font-medium text-2xl grid place-content-center "
           >
             Visit Site
           </motion.div>

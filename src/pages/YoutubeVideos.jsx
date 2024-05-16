@@ -1,39 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Banner from "../components/common/Banner";
 import VideoCard from "../components/youtube-videos/VideoCard";
 import ScrollProgressIndicator from "../components/common/ScrollProgressIndicator";
+import { client } from "../utils/sanity/client";
 
 const YoutubeVideos = () => {
-  const videos = [
-    {
-      thumbnail:
-        "https://i.ytimg.com/vi/lAFbKzO-fss/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCzwrq0jp1Kua9fejZF79Kq1Malbw",
-      title: "MERN Stack Development",
-      description: "Master MERN stack by building real world projects",
-      link: "https://www.youtube.com/watch?v=2Vf1D-rUMwE",
-    },
-    {
-      thumbnail:
-        "https://i.ytimg.com/vi/lAFbKzO-fss/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCzwrq0jp1Kua9fejZF79Kq1Malbw",
-      title: "MERN Stack Development",
-      description: "Master MERN stack by building real world projects",
-      link: "https://www.youtube.com/watch?v=2Vf1D-rUMwE",
-    },
-    {
-      thumbnail:
-        "https://i.ytimg.com/vi/lAFbKzO-fss/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCzwrq0jp1Kua9fejZF79Kq1Malbw",
-      title: "MERN Stack Development",
-      description: "Master MERN stack by building real world projects",
-      link: "https://www.youtube.com/watch?v=2Vf1D-rUMwE",
-    },
-    {
-      thumbnail:
-        "https://i.ytimg.com/vi/lAFbKzO-fss/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCzwrq0jp1Kua9fejZF79Kq1Malbw",
-      title: "MERN Stack Development",
-      description: "Master MERN stack by building real world projects",
-      link: "https://www.youtube.com/watch?v=2Vf1D-rUMwE",
-    },
-  ];
+  const [videos, setVideos] = useState();
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      const Ytvideos = await client.fetch(`*[_type == 'youtube_videos']{
+        thumbnail,
+        link,
+        title,
+        description
+      }`);
+      setVideos(Ytvideos);
+    };
+
+    fetchVideos();
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -48,7 +34,7 @@ const YoutubeVideos = () => {
         {/* courses  */}
 
         <div className="grid gap-10 lg:grid-cols-3 mt-20 place-items-center">
-          {videos.map((video, index) => (
+          {videos?.map((video, index) => (
             <VideoCard key={index} video={video} />
           ))}
         </div>
