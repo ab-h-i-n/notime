@@ -6,9 +6,9 @@ const isValidEmail = (email) => {
   return emailRegex.test(email);
 };
 
-export const ValidateAndSubmit = (form) => {
+export const validateForm = (form) => {
   const isAnyFieldMissing =
-    !form.name || !form.email || !form.phone || !form.date || !form.time;
+    !form.name || !form.email || !form.phone || !form.reason || !form.message;
 
   if (isAnyFieldMissing) {
     return toast.error("All fields are required");
@@ -25,7 +25,7 @@ export const ValidateAndSubmit = (form) => {
   // If all validations pass, submit the form
 
   toast.promise(
-    SubmitForm(form),
+    submitForm(form),
     {
       loading: "Submitting form...",
       success: "Form submitted successfully",
@@ -39,11 +39,12 @@ export const ValidateAndSubmit = (form) => {
   );
 };
 
-const SubmitForm = async (form) => {
+const submitForm = async (form) => {
   const apiUrl = import.meta.env.VITE_APP_API_URL;
   const apiBase = import.meta.env.VITE_APP_AIRTABLE_BASE;
-  const apiTable = import.meta.env.VITE_APP_TEST_FORM_AIRTABLE_TABLE;
+  const apiTable = import.meta.env.VITE_APP_CONTACT_FORM_AIRTABLE_TABLE;
   const apiToken = import.meta.env.VITE_APP_AIRTABLE_TOKEN;
+  
 
   const response = await fetch(`${apiUrl}/${apiBase}/${apiTable}`, {
     method: "POST",
@@ -55,9 +56,10 @@ const SubmitForm = async (form) => {
       fields: {
         Name: form.name,
         Email: form.email,
+        Reason: form.reason,
         Phone: form.phone,
-        Date: form.date,
-        Time: form.time,
+        Message: form.message,
+        Communication_Method:form.communication_method
       },
     }),
   });
@@ -68,4 +70,5 @@ const SubmitForm = async (form) => {
   if (json.error) {
     return Promise.reject(json.error);
   }
+  
 };

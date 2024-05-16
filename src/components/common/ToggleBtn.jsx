@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const ToggleBtn = ({isOn , toggleOn}) => {
+const ToggleBtn = ({isActive , toggleActive}) => {
 
 
   const spring = {
@@ -11,7 +11,7 @@ const ToggleBtn = ({isOn , toggleOn}) => {
   };
 
   return (
-    <div className={`w-16 h-8 bg-[black] flex rounded-full p-2 cursor-pointer items-center ${!isOn ? 'justify-start' : 'justify-end' }`} data-isOn={isOn} onClick={()=>toggleOn()}>
+    <div className={`w-16 h-8 bg-[black] flex rounded-full p-2 cursor-pointer items-center ${!isActive ? 'justify-start' : 'justify-end' }`} onClick={()=>toggleActive()}>
       <motion.div className="w-6 h-6 bg-[white] rounded-full" layout transition={spring} />
     </div>
   );

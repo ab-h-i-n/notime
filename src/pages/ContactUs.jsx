@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import GradientText from "../components/common/GradientText";
 import ToggleBtn from "../components/common/ToggleBtn";
 import { useCycle, motion } from "framer-motion";
+import { validateForm } from "../actions/ContactUsForm";
+
 
 const ContactUs = () => {
   const [isOn, toggleOn] = useCycle(false, true);
@@ -10,6 +12,28 @@ const ContactUs = () => {
     stiffness: 700,
     damping: 30,
   };
+
+  const [ form , setForm ] = useState({
+    name : "",
+    email : "",
+    reason : "",
+    phone : "",
+    message : "",
+    communication_method : "Email"
+  })
+
+  useEffect(()=>{
+    if(isOn){
+      setForm({...form, communication_method : "Phone"})
+    }else{
+      setForm({...form, communication_method : "Email"})
+    }
+  },[isOn]);
+
+
+  useEffect(()=>{
+    console.log(form);
+  },[form])
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -49,7 +73,7 @@ const ContactUs = () => {
               >
                 Email
               </motion.p>
-              <ToggleBtn isOn={isOn} toggleOn={toggleOn} />
+              <ToggleBtn  isActive={isOn} toggleActive={toggleOn} />
               <motion.p
                 layout
                 transition={spring}
@@ -64,7 +88,10 @@ const ContactUs = () => {
         </div>
 
         {/* form  */}
-        <form className="p-10 bg-[#090c11] text-white">
+        <form onSubmit={(e)=>{
+          e.preventDefault();
+          validateForm(form);
+        }} className="p-10 bg-[#090c11] text-white">
           {/* heading  */}
           <h1 className="lg:text-xl">💚 Hello, Let's get in touch</h1>
 
@@ -75,7 +102,9 @@ const ContactUs = () => {
               <input
                 type="text"
                 id="name"
+                name="name"
                 placeholder="Name"
+                onChange={(e)=>setForm({...form, name : e.target.value})}
                 className="lg:text-xl bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
               />
             </div>
@@ -84,7 +113,9 @@ const ContactUs = () => {
               <input
                 type="email"
                 id="email"
+                name="email"
                 placeholder="Email"
+                onChange={(e)=>setForm({...form, email : e.target.value})}
                 className="lg:text-xl bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
               />
             </div>
@@ -93,7 +124,9 @@ const ContactUs = () => {
               <input
                 type="text"
                 id="reason"
+                name="reason"
                 placeholder="Reason for contact"
+                onChange={(e)=>setForm({...form, reason : e.target.value})}
                 className="lg:text-xl bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
               />
             </div>
@@ -102,7 +135,9 @@ const ContactUs = () => {
               <input
                 type="number"
                 id="phone"
+                name="phone"
                 placeholder="Phone No."
+                onChange={(e)=>setForm({...form, phone : e.target.value})}
                 className="lg:text-xl bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
               />
             </div>
@@ -112,7 +147,9 @@ const ContactUs = () => {
               <input
                 type="text"
                 id="msg"
+                name="msg"
                 placeholder="Message"
+                onChange={(e)=>setForm({...form, message : e.target.value})}
                 className="lg:text-xl bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
               />
             </div>
@@ -128,6 +165,7 @@ const ContactUs = () => {
             </button>
           </div>
         </form>
+
       </motion.div>
     </div>
   );
