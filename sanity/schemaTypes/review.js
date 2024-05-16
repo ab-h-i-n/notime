@@ -14,16 +14,6 @@ export default defineType({
             title : 'Name',
             type : 'string'
         }),
-
-        defineField({
-            name : 'slug',
-            title : 'Slug',
-            type : 'slug',
-            options : {
-                source : 'name',
-                maxLength : 96
-            }
-        }),
         defineField({
             name : 'position',
             title : 'Position',
@@ -32,7 +22,8 @@ export default defineType({
         defineField({
             name : 'review',
             title : 'Review',
-            type : 'text'
+            type : 'text',
+            validation: (Rule) => Rule.min(150).max(250),
         }),
         defineField({
             name : 'image',
