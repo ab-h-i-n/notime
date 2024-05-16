@@ -5,10 +5,10 @@ import P from "../common/P";
 
 const Founder = () => {
   return (
-    <div className="xl:order-2 xl:absolute xl:right-64 xl:top-[-300%]">
-      <div className="grid place-items-center gap-10 lg:flex lg:gap-5 xl:grid">
+    <div className="xl:order-2 lg:absolute lg:right-10 lg:top-[-10rem] xl:right-48">
+      <div className="grid place-items-center gap-10 lg:gap-8">
         {/* image */}
-        <motion.div initial={{ opacity : 0 , y : 100}} whileInView={{ opacity : 1 , y : 0 }} transition={{ duration : 0.5 , delay : 0.5 }} >
+        <motion.div initial={{ opacity : 0 , y : 100}} whileInView={{ opacity : 1 , y : 0 }} viewport={{ once : true }} transition={{ duration : 0.5 , delay : 0.5 }} >
           <motion.div
             animate={{
               rotateY: [0, 360],
@@ -18,7 +18,7 @@ const Founder = () => {
               repeat: Infinity,
               repeatDelay: 2,
             }}
-            className="relative w-52 lg:w-20 xl:w-40 aspect-square grid place-items-center"
+            className="relative w-52 lg:w-32 aspect-square grid place-items-center"
           >
             <img
               src="/notime-logo-circle.png"
@@ -29,7 +29,7 @@ const Founder = () => {
           </motion.div>
         </motion.div>
         {/* title */}
-        <P className=" text-center text-lg lg:text-start lg:text-sm xl:text-center xl:text-lg w-[90%] text-white">
+        <P className=" text-center text-lg lg:text-base w-[90%] text-white">
           Your instructor and founders <br />
           <GradientText className={"text-[120%] font-medium"}>
             Muhammed Rinshad&nbsp;S&nbsp;R{" "}

@@ -38,12 +38,14 @@ const ReactSites = () => {
       variants={containerVariants}
       initial="hidden"
       whileInView={'visible'}
+      viewport={{ once: true }}
       className="grid grid-cols-3 gap-3 w-fit md:gap-10 md:grid-cols-4"
     >
       {logos.map((logo, index) => (
         <motion.div
           key={`logo_${index}`}
           variants={itemVariants}
+          viewport={{ once: true }}
           className={`logo_${index}`}
         >
           <Logo logo={logo} />

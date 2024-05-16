@@ -22,7 +22,7 @@ const SocialLinks = () => {
   ];
 
   return (
-    <div className="flex gap-10 py-10 lg:py-4">
+    <div className="flex gap-10 py-10">
       {links.map((link, index) => (
         <motion.a whileHover={{ scale : 1.2 , y : -20 }} key={`social_link_${index}`} href={link.link}>
           <img src={link.img} alt="social" className="w-8 lg:w-6 xl:w-8" />
