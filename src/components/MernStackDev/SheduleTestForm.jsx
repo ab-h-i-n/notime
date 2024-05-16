@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import NormalButton from "../common/NormalButton";
+import { ValidateAndSubmit } from "../../actions/FreeTestForm";
 
 const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
+  const date = new Date().toISOString().split("T")[0];
+  const time = new Date().toLocaleTimeString().split(" ")[0];
 
   const varients = {
     open: {
@@ -21,6 +24,17 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
     },
   };
 
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    date: date,
+    time: time,
+  });
+
+  useEffect(() => {
+    console.log(form);
+  }, [form]);
 
   return (
     <motion.div
@@ -28,7 +42,13 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
       animate={isOpen ? "open" : "closed"}
       className={` overflow-hidden `}
     >
-      <form className="grid gap-5 mt-10 lg:gap-10 py-10">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          ValidateAndSubmit(form);
+        }}
+        className="grid gap-5 mt-10 lg:gap-10 py-10"
+      >
         {/* name */}
         <input
           className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
@@ -36,6 +56,7 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
           type="text"
           name="name"
           id="name"
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
         />
 
         {/* Email */}
@@ -45,6 +66,7 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
           type="text"
           name="email"
           id="email"
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
         />
 
         {/* phone */}
@@ -54,6 +76,7 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
           type="number"
           name="phone"
           id="phone"
+          onChange={(e) => setForm({ ...form, phone: e.target.value })}
         />
 
         {/* date */}
@@ -62,7 +85,8 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
           type="date"
           name="date"
           id="date"
-          defaultValue={new Date().toISOString().split("T")[0]}
+          defaultValue={date}
+          onChange={(e) => setForm({ ...form, date: e.target.value })}
         />
 
         {/* time */}
@@ -72,7 +96,10 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
           type="time"
           name="time"
           id="time"
+          min={currentTime}
+          max={"24:00"}
           defaultValue={currentTime}
+          onChange={(e) => setForm({ ...form, time: e.target.value })}
         />
 
         {/* buttons */}
@@ -87,14 +114,16 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
           </NormalButton>
 
           {/* submit */}
-          <NormalButton
-            text={"Submit"}
-            gradient={
-              "bg-gradient-to-r from-green-500 to-green-800 white-shadow"
-            }
-          >
-            Submit
-          </NormalButton>
+          <button type="submit">
+            <NormalButton
+              text={"Submit"}
+              gradient={
+                "bg-gradient-to-r from-green-500 to-green-800 white-shadow"
+              }
+            >
+              Submit
+            </NormalButton>
+          </button>
         </div>
       </form>
     </motion.div>
