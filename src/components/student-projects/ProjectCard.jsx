@@ -1,7 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import imageUrlBuilder from '@sanity/image-url'
+import { client } from "../../utils/sanity/client";
 
 const ProjectCard = ({ project }) => {
+  const builder = imageUrlBuilder(client)
+
   return (
     <>
       <motion.div
@@ -10,7 +14,8 @@ const ProjectCard = ({ project }) => {
         transition={{  duration: 0.5}}
         className="max-w-sm bg-[#0e1116] border-[#252d39] border rounded-lg shadow "
       >
-        <div className="relative cursor-pointer">
+        {/* thumbnail  */}
+        <a href={project?.link} className="relative cursor-pointer">
           <motion.div
             initial={{ opacity: 0 }}
             whileHover={{ opacity: 1 }}
@@ -18,15 +23,16 @@ const ProjectCard = ({ project }) => {
           >
             Visit Site
           </motion.div>
-          <img className="rounded-t-lg" src={project.thumbnail} alt="" />
-        </div>
+          <img className="rounded-t-lg aspect-[16/8]" src={builder.image(project?.project_image).url()} alt="" />
+        </a>
+
         <div className="p-5 flex gap-5">
           {/* developer  */}
           <div>
             <img
-              className="w-16 rounded-md"
-              src={project.developerImage}
-              alt={project.developer}
+              className="w-12 rounded-md aspect-square"
+              src={builder.image(project?.profile_image).url()}
+              alt={project?.name}
             />
           </div>
 
@@ -34,14 +40,14 @@ const ProjectCard = ({ project }) => {
           <div>
             <a href="#">
               <h5 className="mb-2 text-xl font-bold tracking-tight text-white">
-                {project.title}
+                {project?.project_title}
               </h5>
             </a>
             <p className="mb-3 font-medium text-sm text-gray-300">
-              By {project.developer} - {project.developerPosition}
+              By {project?.name} - {project?.position}
             </p>
             <p className="mb-3 font-normal text-sm text-gray-400">
-              {project.description}
+              {project?.project_description}
             </p>
           </div>
         </div>

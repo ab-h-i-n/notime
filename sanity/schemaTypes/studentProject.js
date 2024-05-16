@@ -4,7 +4,7 @@ import { defineField, defineType } from "sanity";
 
 export default defineType({
 
-    name : 'studentProject',
+    name : 'student_project',
     title : 'Student Project',
     type : 'document',
 
@@ -38,7 +38,7 @@ export default defineType({
             name : 'project_description',
             title : 'Project Description',
             type : 'text',
-            validation : (Rule) => Rule.max(100).min(50)
+            validation : (Rule) => Rule.max(100).min(30)
         }),
         defineField({
             name : 'project_link',
