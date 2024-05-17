@@ -2,9 +2,25 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import NormalButton from "../common/NormalButton";
 import { ValidateAndSubmit } from "../../actions/FreeTestForm";
+import TickMark from "./TickMark";
+import GradientText from "../common/GradientText";
+import P from "../common/P";
 
 const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+
   const date = new Date().toISOString().split("T")[0];
+
+  const getMinTime = (date) => {
+    const today = new Date().toISOString().split("T")[0];
+    const selectedDate = new Date(date).toISOString().split("T")[0];
+
+    if (selectedDate === today) {
+      return currentTime;
+    } else {
+      return "00:00";
+    }
+  };
 
   const varients = {
     open: {
@@ -27,109 +43,149 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
     name: "",
     email: "",
     phone: "",
-    date: "",
+    date: date,
     time: "",
   });
 
-  useEffect(()=>{
-    setForm({...form,time : currentTime , date : date})
-  },[currentTime])
+  useEffect(() => {
+    setForm({ ...form, time: currentTime, date: date });
+  }, [currentTime]);
 
   useEffect(() => {
     console.log(form);
   }, [form]);
 
   return (
-    <motion.div
-      variants={varients}
-      animate={isOpen ? "open" : "closed"}
-      className={` overflow-hidden `}
-    >
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          ValidateAndSubmit(form);
-        }}
-        className="grid gap-5 mt-10 lg:gap-10 py-10"
+    <div className="relative">
+      {/* form  */}
+      <motion.div
+        animate={isFormSubmitted && { opacity: 0, pointerEvents: "none" }}
+        transition={{ duration: 0.5 }}
       >
-        {/* name */}
-        <input
-          className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
-          placeholder="Full Name"
-          type="text"
-          name="name"
-          id="name"
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-        />
-
-        {/* Email */}
-        <input
-          className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
-          placeholder="Email"
-          type="text"
-          name="email"
-          id="email"
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-        />
-
-        {/* phone */}
-        <input
-          className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
-          placeholder="Phone No."
-          type="number"
-          name="phone"
-          id="phone"
-          onChange={(e) => setForm({ ...form, phone: e.target.value })}
-        />
-
-        {/* date */}
-        <input
-          className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
-          type="date"
-          name="date"
-          id="date"
-          min={date}
-          defaultValue={date}
-          onChange={(e) => setForm({ ...form, date: e.target.value })}
-        />
-
-        {/* time */}
-
-        <input
-          className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
-          type="time"
-          name="time"
-          id="time"
-          min={currentTime}
-          defaultValue={currentTime}
-          onChange={(e) => setForm({ ...form, time: e.target.value })}
-        />
-
-        {/* buttons */}
-        <div className="flex items-center gap-5">
-          {/* cancel */}
-          <NormalButton
-            text={"Cancel"}
-            gradient={"bg-gradient-to-r from-red-500 to-red-800 dark-shadow"}
-            onClick={() => setFormOpen(false)}
+        <motion.div
+          variants={varients}
+          animate={isOpen ? "open" : "closed"}
+          className={` overflow-hidden `}
+        >
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              ValidateAndSubmit(form, setIsFormSubmitted);
+            }}
+            className="grid gap-5 mt-10 lg:gap-10 py-10"
           >
-            Cancel
-          </NormalButton>
+            {/* name */}
+            <input
+              className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
+              placeholder="Full Name"
+              type="text"
+              name="name"
+              id="name"
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+            />
 
-          {/* submit */}
-          <button type="submit">
-            <NormalButton
-              text={"Submit"}
-              gradient={
-                "bg-gradient-to-r from-green-500 to-green-800 white-shadow"
-              }
-            >
-              Submit
-            </NormalButton>
-          </button>
-        </div>
-      </form>
-    </motion.div>
+            {/* Email */}
+            <input
+              className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
+              placeholder="Email"
+              type="text"
+              name="email"
+              id="email"
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+            />
+
+            {/* phone */}
+            <input
+              className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
+              placeholder="Phone No."
+              type="number"
+              name="phone"
+              id="phone"
+              onChange={(e) => setForm({ ...form, phone: e.target.value })}
+            />
+
+            {/* date */}
+            <input
+              className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
+              type="date"
+              name="date"
+              id="date"
+              min={date}
+              defaultValue={date}
+              onChange={(e) => setForm({ ...form, date: e.target.value })}
+            />
+
+            {/* time */}
+
+            <input
+              className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
+              type="time"
+              name="time"
+              id="time"
+              min={getMinTime(form.date)}
+              defaultValue={currentTime}
+              onChange={(e) => setForm({ ...form, time: e.target.value })}
+            />
+
+            {/* buttons */}
+            <div className="flex items-center gap-5 relative z-[49]">
+              {/* cancel */}
+              <NormalButton
+                text={"Cancel"}
+                gradient={
+                  "bg-gradient-to-r from-red-500 to-red-800 dark-shadow"
+                }
+                onClick={() => setFormOpen(false)}
+              >
+                Cancel
+              </NormalButton>
+
+              {/* submit */}
+              <button type="submit">
+                <NormalButton
+                  text={"Submit"}
+                  gradient={
+                    "bg-gradient-to-r from-green-500 to-green-800 white-shadow"
+                  }
+                >
+                  Submit
+                </NormalButton>
+              </button>
+            </div>
+          </form>
+        </motion.div>
+      </motion.div>
+
+      {/* success message */}
+      <div className="absolute top-20 left-0 pointer-events-none w-full h-fit gap-10 grid place-items-center">
+        
+        {/* tick mark  */}
+        
+        <TickMark isFormSubmitted={isFormSubmitted} />
+
+        {/* message  */}
+
+        <motion.p
+          className="font-medium text-xl lg:text-2xl text-center"
+          initial={{ opacity: 0, y: 100 }}
+          animate={isFormSubmitted && { opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          Your test is scheduled on <br />{" "}
+          <GradientText>{date + " at " + form.time}</GradientText>
+        </motion.p>
+
+        {/* info  */}
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isFormSubmitted && { opacity: 1 }}
+          transition={{ delay: 0.7 }}
+        >
+          <P>Check your mail for updates!</P>
+        </motion.p>
+      </div>
+    </div>
   );
 };
 

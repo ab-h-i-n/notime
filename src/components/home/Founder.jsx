@@ -25,7 +25,7 @@ const Founder = () => {
               alt="notime"
               className="w-[99.005%] relative z-40 "
             />
-            <div className="absolute z-10 top-0 rounded-full left-0 w-full aspect-square bg-gradient-to-br from-green-500 to-yellow-500"></div>
+            <div className="absolute z-10 top-0 rounded-full left-0 w-full aspect-square bg-slate-500"></div>
           </motion.div>
         </motion.div>
         {/* title */}
