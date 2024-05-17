@@ -5,6 +5,7 @@ import ScrollProgressIndicator from "../components/common/ScrollProgressIndicato
 import FreeTestSection from "../components/MernStackDev/FreeTestSection";
 import PossibilitiesSection from "../components/MernStackDev/PossibilitiesSection";
 import IceBergSection from "../components/MernStackDev/IceBergSection";
+import FrequentlyAskedQuestion from "../components/MernStackDev/FrequentlyAskedQuestion";
 
 const MernStack = () => {
   useEffect(() => {
@@ -30,6 +31,10 @@ const MernStack = () => {
 
       {/* Free Test  */}
       <FreeTestSection />
+
+      {/* FrequentlyAskedQuestion  */}
+      <FrequentlyAskedQuestion/>
+      
     </div>
   );
 };
