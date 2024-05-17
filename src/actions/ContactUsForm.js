@@ -6,7 +6,7 @@ const isValidEmail = (email) => {
   return emailRegex.test(email);
 };
 
-export const validateForm = (form) => {
+export const validateForm = (form,setIsFormSubmitted) => {
   const isAnyFieldMissing =
     !form.name || !form.email || !form.phone || !form.reason || !form.message;
 
@@ -25,7 +25,7 @@ export const validateForm = (form) => {
   // If all validations pass, submit the form
 
   toast.promise(
-    submitForm(form),
+    submitForm(form,setIsFormSubmitted),
     {
       loading: "Submitting form...",
       success: "Form submitted successfully",
@@ -39,7 +39,7 @@ export const validateForm = (form) => {
   );
 };
 
-const submitForm = async (form) => {
+const submitForm = async (form, setIsFormSubmitted) => {
   const apiUrl = import.meta.env.VITE_APP_API_URL;
   const apiBase = import.meta.env.VITE_APP_AIRTABLE_BASE;
   const apiTable = import.meta.env.VITE_APP_CONTACT_FORM_AIRTABLE_TABLE;
@@ -69,6 +69,8 @@ const submitForm = async (form) => {
 
   if (json.error) {
     return Promise.reject(json.error);
+  }else{
+    setIsFormSubmitted(true);
   }
   
 };

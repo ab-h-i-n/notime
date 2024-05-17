@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import NormalButton from "../common/NormalButton";
 import { ValidateAndSubmit } from "../../actions/FreeTestForm";
-import TickMark from "./TickMark";
+import TickMark from "../common/TickMark";
 import GradientText from "../common/GradientText";
 import P from "../common/P";
 

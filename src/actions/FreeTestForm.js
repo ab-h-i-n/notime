@@ -67,7 +67,7 @@ const SubmitForm = async (form,setIsFormSubmitted) => {
 
   if (json.error) {
     return Promise.reject(json.error);
+  }else{
+    setIsFormSubmitted(true);
   }
-
-  setIsFormSubmitted(true);
 };
