@@ -6,6 +6,8 @@ import FreeTestSection from "../components/MernStackDev/FreeTestSection";
 import PossibilitiesSection from "../components/MernStackDev/PossibilitiesSection";
 import IceBergSection from "../components/MernStackDev/IceBergSection";
 import FrequentlyAskedQuestion from "../components/MernStackDev/FrequentlyAskedQuestion";
+import NormalButton from "../components/common/NormalButton";
+import { Link } from "react-router-dom";
 
 const MernStack = () => {
   useEffect(() => {
@@ -33,8 +35,16 @@ const MernStack = () => {
       <FreeTestSection />
 
       {/* FrequentlyAskedQuestion  */}
-      <FrequentlyAskedQuestion/>
-      
+      <FrequentlyAskedQuestion />
+
+      {/* contact us button  */}
+
+      <Link to={'/contact-us'} >
+        <NormalButton gradient={'bg-gradient-to-r from-yellow-500 to-yellow-800 white-shadow flex items-center gap-3'}>
+          Contact Us
+          <img src="/add-call.svg" alt="contact-us" className="w-5" />
+          </NormalButton>
+      </Link>
     </div>
   );
 };

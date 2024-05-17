@@ -72,7 +72,7 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
               e.preventDefault();
               ValidateAndSubmit(form, setIsFormSubmitted);
             }}
-            className="grid gap-5 mt-10 lg:gap-10 py-10"
+            className="grid gap-5 mt-10 lg:gap-10 pt-10"
           >
             {/* name */}
             <input

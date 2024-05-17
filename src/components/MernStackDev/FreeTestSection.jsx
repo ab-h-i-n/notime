@@ -59,7 +59,7 @@ const FreeTestSection = () => {
       {/* Form open button  */}
       <motion.div
         variants={buttonVariants}
-        animate={isOpen ? "hidden" : "visible"}
+        animate={isOpen ? "hidden" : "visible" }
         onClick={() => getTime()}
       >
         <NormalButton

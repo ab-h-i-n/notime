@@ -21,14 +21,14 @@ const FrequentlyAskedQuestion = () => {
   });
 
   return (
-    <div className="max-w-2xl grid gap-10 mt-10">
+    <div className="max-w-6xl grid gap-10 lg:gap-20 ">
       {/* heading  */}
-      <h1 className="text-[2.5rem] font-bold text-center leading-[3rem]">
+      <h1 className="text-[2.5rem] lg:text-[3rem] font-bold text-center leading-[3rem]">
         Frequently Asked Questions
       </h1>
 
       {/* questions  */}
-      <div className="grid gap-5">
+      <div className="grid gap-5 ">
         {questions?.map((question, index) => (
           <QuestionItem question={question} key={`question_${index}`} />
         ))}
