@@ -6,10 +6,14 @@ const isValidEmail = (email) => {
   return emailRegex.test(email);
 };
 
-export const ValidateAndSubmit = (form , setIsFormSubmitted) => {
-  const isAnyFieldMissing =
-    !form.name || !form.email || !form.phone || !form.date || !form.time;
+const isDateInPast = (dateString) => {
+  const formDate = new Date(dateString);
+  const currentDate = new Date();
+  return formDate < currentDate;
+};
 
+export const ValidateAndSubmit = (form, setIsFormSubmitted) => {
+  const isAnyFieldMissing = !form.name || !form.email || !form.phone || !form.date;
   if (isAnyFieldMissing) {
     return toast.error("All fields are required");
   }
@@ -22,10 +26,14 @@ export const ValidateAndSubmit = (form , setIsFormSubmitted) => {
     return toast.error("Invalid phone number");
   }
 
-  // If all validations pass, submit the form
+  // Check if form.date is in the past
+  if (isDateInPast(form.date)) {
+    return toast.error("Date cannot be in the past");
+  }
 
+  // If all validations pass, submit the form
   toast.promise(
-    SubmitForm(form,setIsFormSubmitted),
+    SubmitForm(form, setIsFormSubmitted),
     {
       loading: "Submitting form...",
       success: "Form submitted successfully",
@@ -39,7 +47,7 @@ export const ValidateAndSubmit = (form , setIsFormSubmitted) => {
   );
 };
 
-const SubmitForm = async (form,setIsFormSubmitted) => {
+const SubmitForm = async (form, setIsFormSubmitted) => {
   const apiUrl = import.meta.env.VITE_APP_API_URL;
   const apiBase = import.meta.env.VITE_APP_AIRTABLE_BASE;
   const apiTable = import.meta.env.VITE_APP_TEST_FORM_AIRTABLE_TABLE;
@@ -57,17 +65,16 @@ const SubmitForm = async (form,setIsFormSubmitted) => {
         Email: form.email,
         Phone: form.phone,
         Date: form.date,
-        Time: form.time,
       },
     }),
   });
 
   const json = await response.json();
-  console.log(response,json);
+  console.log(response, json);
 
   if (json.error) {
     return Promise.reject(json.error);
-  }else{
+  } else {
     setIsFormSubmitted(true);
   }
 };

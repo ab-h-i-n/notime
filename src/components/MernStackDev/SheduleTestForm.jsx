@@ -8,19 +8,7 @@ import P from "../common/P";
 
 const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-
-  const date = new Date().toISOString().split("T")[0];
-
-  const getMinTime = (date) => {
-    const today = new Date().toISOString().split("T")[0];
-    const selectedDate = new Date(date).toISOString().split("T")[0];
-
-    if (selectedDate === today) {
-      return currentTime;
-    } else {
-      return "00:00";
-    }
-  };
+  const [currentDate, setCurrentDate] = useState();
 
   const varients = {
     open: {
@@ -39,16 +27,41 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
     },
   };
 
+  const getFormatedDate = (date) => {
+    const formattedDateTimeString = date;
+    const formattedDateTime = new Date(formattedDateTimeString);
+
+    const year = formattedDateTime.getFullYear();
+    const month = String(formattedDateTime.getMonth() + 1).padStart(2, "0");
+    const day = String(formattedDateTime.getDate()).padStart(2, "0");
+    const hours = formattedDateTime.getHours();
+    const minutes = String(formattedDateTime.getMinutes()).padStart(2, "0");
+    const ampm = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 || 12;
+
+    const formattedDate = `${month}/${day}/${year}`;
+    const formattedTime = `${formattedHours}:${minutes} ${ampm}`;
+    const formattedDateAndTime = `${formattedDate} - ${formattedTime}`;
+
+    return formattedDateAndTime;
+  };
+
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
-    date: date,
-    time: "",
+    date: "",
   });
 
   useEffect(() => {
-    setForm({ ...form, time: currentTime, date: date });
+    const currentDate = new Date().getDate();
+    const currentMonth = new Date().getMonth() + 1;
+    const currentYear = new Date().getFullYear();
+    const currentDateTime = `${currentYear}-${
+      currentMonth < 10 && "0" + currentMonth
+    }-${currentDate}T${currentTime}`;
+    setCurrentDate(currentDateTime);
+    setForm({ ...form, date: currentDateTime });
   }, [currentTime]);
 
   useEffect(() => {
@@ -107,24 +120,13 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
             {/* date */}
             <input
               className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
-              type="date"
+              type="datetime-local"
               name="date"
               id="date"
-              min={date}
-              defaultValue={date}
+              pattern="\d{2}-\d{2}-\d{4}"
+              min={currentDate}
+              defaultValue={form.date}
               onChange={(e) => setForm({ ...form, date: e.target.value })}
-            />
-
-            {/* time */}
-
-            <input
-              className="lg:text-xl focus:outline-none focus:border-white bg-transparent border-b border-b-[#1c222e] text-white w-full p-2"
-              type="time"
-              name="time"
-              id="time"
-              min={getMinTime(form.date)}
-              defaultValue={currentTime}
-              onChange={(e) => setForm({ ...form, time: e.target.value })}
             />
 
             {/* buttons */}
@@ -158,9 +160,8 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
 
       {/* success message */}
       <div className="absolute top-20 left-0 pointer-events-none w-full h-fit gap-10 grid place-items-center">
-        
         {/* tick mark  */}
-        
+
         <TickMark isFormSubmitted={isFormSubmitted} />
 
         {/* message  */}
@@ -172,7 +173,7 @@ const SheduleTestForm = ({ isOpen, setFormOpen, currentTime }) => {
           transition={{ delay: 0.5 }}
         >
           Your test is scheduled on <br />{" "}
-          <GradientText>{date + " at " + form.time}</GradientText>
+          <GradientText>{getFormatedDate(form.date)}</GradientText>
         </motion.p>
 
         {/* info  */}
