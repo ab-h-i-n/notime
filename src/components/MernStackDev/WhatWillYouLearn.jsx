@@ -25,6 +25,10 @@ const WhatWillYouLearn = () => {
     fetchLevels();
   }, []);
 
+  useEffect(()=>{
+    console.log(levels);
+  },[levels])
+
 
   const gradientsForLevels = [
     'from-green-500 to-yellow-500',
