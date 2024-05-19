@@ -12,7 +12,7 @@ const LevelCard = ({ level, gradient }) => {
   const containerRef = useRef();
 
   return (
-    <div ref={containerRef} className="w-full max-w-[600px] bg-[#101822] pt-20 pb-16 px-5 rounded-2xl relative border-[0.5px] border-slate-800">
+    <div ref={containerRef} className="w-full max-w-[600px] bg-[#101822] pt-20 pb-16 px-5 md:px-10 rounded-2xl relative border-[0.5px] border-slate-800">
       
       {/* level indicator  */}
       <motion.div  className="opacity-50 w-min bg-[#070910] flex justify-end text-lg xl:text-xl font-black absolute top-10 right-0 p-2 md:pl-3 md:pr-4 xl:pr-6 text-nowrap rounded-l-xl z-[2]">{level?.title}</motion.div>
