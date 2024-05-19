@@ -16,8 +16,7 @@ const WhatWillYouLearn = () => {
           title,
           content
         }
-      }
-      `);
+      } | order(title asc)`);
 
       setLevels(levels);
     };
