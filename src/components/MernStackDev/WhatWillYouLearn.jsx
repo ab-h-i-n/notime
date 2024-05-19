@@ -10,6 +10,7 @@ const WhatWillYouLearn = () => {
     const fetchLevels = async () => {
       const levels = await client.fetch(`*[_type == "levels"]{
         title,
+        icon,
         level_title,
         main_contents[] {
           title,
@@ -24,10 +25,18 @@ const WhatWillYouLearn = () => {
     fetchLevels();
   }, []);
 
+
+  const gradientsForLevels = [
+    'from-green-500 to-yellow-500',
+    'from-sky-500 to-violet-500',
+    'from-rose-500 to-amber-500',
+    'from-blue-500 to-green-500',
+  ];
+
   return (
     <div className="grid gap-10 md:gap-10 my-10 max-w-2xl">
       {/* heading  */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 mb-16">
         {/* arrow left  */}
         <img src="/arrow-down.svg" alt="arrow" className="w-12" />
         {/* text  */}
@@ -38,10 +47,10 @@ const WhatWillYouLearn = () => {
 
       {/* levels */}
 
-      <div className="grid gap-10">
+      <div className="grid gap-20">
         {levels?.map((level, index) => (
           <>
-            <LevelCard key={level?.title} level={level} />
+            <LevelCard key={level?.title} level={level} gradient={gradientsForLevels[index % gradientsForLevels.length]} />
           </>
         ))}
       </div>

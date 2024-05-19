@@ -4,7 +4,6 @@ import GradientText from "../components/common/GradientText";
 import ReviewCard from "../components/home/ReviewCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-// import { reviews } from "../Reviews";
 import "swiper/css";
 import { motion } from "framer-motion";
 import Button from "../components/home/Button";
