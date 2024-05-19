@@ -23,7 +23,7 @@ const FrequentlyAskedQuestion = () => {
   return (
     <div className="max-w-6xl grid gap-10 lg:gap-20 mt-10">
       {/* heading  */}
-      <h1 className="text-[2.5rem] lg:text-[3rem] font-bold text-center leading-[3rem]">
+      <h1 className="text-[2rem] lg:text-[3rem] font-bold md:text-center leading-[3rem]">
         Frequently Asked Questions
       </h1>
 

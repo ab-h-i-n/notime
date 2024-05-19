@@ -8,6 +8,7 @@ import IceBergSection from "../components/MernStackDev/IceBergSection";
 import FrequentlyAskedQuestion from "../components/MernStackDev/FrequentlyAskedQuestion";
 import NormalButton from "../components/common/NormalButton";
 import { Link } from "react-router-dom";
+import WhatWillYouLearn from "../components/MernStackDev/WhatWillYouLearn";
 
 const MernStack = () => {
   useEffect(() => {
@@ -30,6 +31,9 @@ const MernStack = () => {
 
       {/* possibilities  */}
       <PossibilitiesSection />
+
+      {/* what will you learn  */}
+      <WhatWillYouLearn/>
 
       {/* Free Test  */}
       <FreeTestSection />

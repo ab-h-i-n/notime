@@ -54,13 +54,10 @@ body{
   background:  #4a516b; 
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
 
-input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-}
 
 
 input::-webkit-outer-spin-button,
